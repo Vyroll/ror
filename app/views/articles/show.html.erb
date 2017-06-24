@@ -10,5 +10,7 @@
   <%= @article.content %>
 </p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
+<% if signed_in? && current_user.email == 'admin@gmail.com'%>
+  <%= link_to 'Edit', edit_article_path(@article) %> |
+<% end %>
 <%= link_to 'Back', articles_path %>
