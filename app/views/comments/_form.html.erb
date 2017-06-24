@@ -16,15 +16,8 @@
     <%= f.text_field :content %>
   </div>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :article_id %>
-    <%= f.text_field :article_id %>
-  </div>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :article_id, value: @article.id %>
 
   <div class="actions">
     <%= f.submit %>

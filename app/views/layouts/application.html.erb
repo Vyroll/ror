@@ -13,6 +13,8 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <p><%= link_to('Articles', articles_path) %></p>
+
     <% if current_user %>
       <%= current_user.email %>
     <% end %>

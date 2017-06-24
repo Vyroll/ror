@@ -1,12 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @article.title %>
-</p>
+</h1>
 
 <p>
-  <strong>Content:</strong>
   <%= @article.content %>
 </p>
 
@@ -14,3 +10,20 @@
   <%= link_to 'Edit', edit_article_path(@article) %> |
 <% end %>
 <%= link_to 'Back', articles_path %>
+
+<h2>Comments:</h2>
+
+<% @comments.each do |comment|  %>
+    <p>
+      <%= comment.user.email %></br>
+      <%= comment.content %>
+    </p>
+<% end %>
+
+
+<% if signed_in? %>
+  <h3>Make New Comment!</h3>
+  <%= render 'comments/form', comment: @comment %>
+    <%  else %>
+    <p><%= link_to('Login', new_user_session_path) %> to post a omment</p>
+<% end %>

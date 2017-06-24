@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @comment = Comment.new
+    @comments = Comment.where(article: @article)
   end
 
   # GET /articles/new
